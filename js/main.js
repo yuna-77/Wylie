@@ -1,115 +1,55 @@
-$(function(){
-	let t=0;
-	let n=0;
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js"></script>
+<script>
+window.addEventListener("load", function(){
+	let body=document.body;
+	let tab=document.querySelector("#start .tab");
+	let dim=document.querySelector(".dim");
+	let mobile=document.querySelector("#mobile");
 	let w;
-	let winHalf;
-	let topPos=0;
-	let categoryFlag=false;
 
-	$("#gnb li").eq(n).find("a").addClass("on");
+	/*사용자가 tab을 클릭하면 menu open(add)*/
+	tab.addEventListener("click", function(e){
+		e.preventDefault();
+	
+		if(tab.classList.contains("close") == false){ /*open*/
+			body.classList.add("active");
+			dim.classList.add("active");
+			tab.classList.add("close");
+			// #moblie add
+			gsap.to(tab, { x: -240, duration: 0.3 }); // x: -240 -> translateX
+			gsap.to(mobile, {  opacity:1, right:0, duration:0.3 });
+		}
+		else{ /*close*/
+			body.classList.remove("active");
+			dim.classList.remove("active");
+			tab.classList.remove("close");
+			// #moblie remove
+			gsap.to(tab, { x: 0, duration: 0.3 });
+			gsap.to(mobile, { opacity:0, right:-240, duration:0.3 });
+		}
+	});
 
-	$(window).scroll(function(){
-		t=$(window).scrollTop();
+	/*사용자가 흐린 배경(dim)을 클릭하면 모바일 메뉴가 닫히고(remove) 배경이 원래대로 돌아옵니다.*/
+	dim.addEventListener("click", function(e){
+		e.preventDefault();
 
-		if(t < $("#page1").offset().top-winHalf){
-			n=0;
-		}
-		else if(t < $("#page2").offset().top-winHalf){
-				n=1;
-		}
-		else if(t < $("#page3").offset().top-winHalf){
-			n=2;
-		}
-		else if(t < $("#page4").offset().top-winHalf){
-			n=3;
-		}
-		else if(t < $("#page5").offset().top-winHalf){
-			n=4;
-		}
-		else{
-			n=5;
-		}
+		body.classList.remove("fixed");
+		mobile.classList.remove("active");
+		dim.classList.remove("active");
+	});
 
-		if(t > 100){
-			$(".btn_top").addClass("active");
-			$(".menu_zone").addClass("active");
-		}
-		else{
-			$(".btn_top").removeClass("active");
-			$(".menu_zone").removeClass("active");
-		}
-
-		$("#gnb li a").removeClass("on");
-		$("#gnb li").eq(n).find("a").addClass("on");
-
-		if(categoryFlag){
-			return;
-		}
-		else{
-			if(n == 0){
-				$("#header").addClass("active");
-			}
-			else{
-				$("#page"+n).addClass("active");
-
-				if(n == 5){
-					categoryFlag=true;
-				}
+	window.addEventListener("resize", function(){
+		console.log(innerWidth);
+		//460 보다 창 화면이 커지면 모든 클래스를 제거해 #mobile이 아닌 #desktop으로 돌아가게 한다.
+		if(window.innerWidth > 460){
+			if(mobile.classList.contains("active")){
+				body.classList.remove("fixed");
+				dim.classList.remove("active");
+				tab.classList.remove("close");
+				mobile.classList.remove("active");
+				
 			}
 		}
-	});
-
-	$(window).resize(function(){
-		// w=$(window).width();
-		w=window.innerWidth;
-		winHalf=$(window).height()/2;
-
-		if(w > 720){
-			if($(".mobile").hasClass("active")){
-				$(".dim").trigger("click");
-			}
-		}
-
-		$(window).trigger("scroll");
-	});
-
-	$(window).trigger("resize");
-
-	$(".tab").click(function(e){
-		e.preventDefault();
-
-		$("body").toggleClass("static");
-		$(".mobile").toggleClass("active");
-		$(".tab").toggleClass("active");
-		$(".dim").toggleClass("active");
-	});
-
-	$(".dim").click(function(){
-		$("body").removeClass("static");
-		$(".mobile").removeClass("active");
-		$(".tab").removeClass("active");
-		$(".dim").removeClass("active");
-	});
-
-	$("#gnb li").click(function(e){
-		e.preventDefault();
-
-		topPos=$(this).find("a").attr("href");
-		topPos=$(topPos).offset().top;
-		$("html").animate({ scrollTop: topPos }, 400);
-	});
-
-	$("#m_gnb li").click(function(e){
-		e.preventDefault();
-
-		$(".dim").trigger("click");
-		topPos=$(this).find("a").attr("href");
-		topPos=$(topPos).offset().top;
-		$("html").delay(400).animate({ scrollTop: topPos }, 400);
-	});
-
-	$(".btn_top").click(function(e){
-		e.preventDefault();
-		$("html").animate({ scrollTop: 0 }, 400);
 	});
 });
+</script>
