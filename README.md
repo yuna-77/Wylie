@@ -6,17 +6,20 @@
 
 ## Overview ⭐️
 
-✅ 동적인 스와이퍼 효과를 메인 페이지에 적용   
-  
+✅ 미디어 쿼리를 활용하여 mobile, tablet, decktop에 최적화된 레이아웃을 구현  
+✅ 폼 형식을 통한 응답 확인 폼 구현  
+✅ GSAP의 기본 요소 사용  
+✅ PWA를 사용해 웹 뿐만 아니라 모바일 환경 구현  
 
 
 ## 사용 기술 스택 🔧
 
-- **Frontend** : PWA, GSAP, HTML, CSS, JavaScript, SCSS
-- **Library** : SwiperJS
+- **Frontend** : HTML, CSS, JavaScript, SCSS
+- **PWA**: Web App Manifest
+- **Library** : SwiperJS, GSAP
 - **SCM** : Git, GitHub
 - **Design** : Figma
-- **Platform**: Web,App
+- **Platform**: Web & Mobile(APP)
 
     
 ## 주요 기능 ⚙️
