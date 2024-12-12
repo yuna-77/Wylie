@@ -235,7 +235,6 @@ textarea {
 	text-indent: -9999px;
 	font-size: 0;
 }
-
 //mixin
 @mixin fade-move-transition($opacity:0 , $translateY, $transitionOpacity:0.4s, $transitionTransform: 0.6s, $transitionTiming: ease){
 	opacity: $opacity;

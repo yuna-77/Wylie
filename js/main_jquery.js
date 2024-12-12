@@ -15,7 +15,7 @@ $(function(){
 			n=0;
 		}
 		else if(t < $("#page2").offset().top-winHalf){
-				n=1;
+			n=1;
 		}
 		else if(t < $("#page3").offset().top-winHalf){
 			n=2;

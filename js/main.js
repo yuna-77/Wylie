@@ -1,5 +1,3 @@
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js"></script>
-<script>
 window.addEventListener("load", function(){
 	let body=document.body;
 	let tab=document.querySelector("#start .tab");
@@ -51,5 +49,8 @@ window.addEventListener("load", function(){
 			}
 		}
 	});
+
+	
+
+
 });
-</script>
