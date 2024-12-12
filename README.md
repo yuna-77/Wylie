@@ -24,17 +24,41 @@
     
 ## 주요 기능 ⚙️
 
-### [메인 화면]
+### [메인 페이지]
 
-|Main Slide|
-|:---:|
-|<img src="" />|
-|기본적인 swiperJS를 응용하여 메인화면을 구성해보았다.|   
+- @media 쿼리와 em을 사용해 화면 크기에 따라 폰트 크기 조절이 용이 하게 디자인 되었습니다.
 
-- 메인 페이지에 동적인 Swiper를 적용하여 보다 Interective Web을 보여주고자 했습니다.
-- 슬라이드 방식의 전시회 소개는 메인 페이지에서 전시회에 대한 정보를 한눈에 볼 수 있게 합니다.
-- 추가 이벤트가 생길 시에는 간단한 업데이트로 지속적인 사이트 관리의 편의성을 높여줍니다.
+### [회사 연혁 제작]
 
+- 아래와 같이 html을 구성하여 회사 연혁을 소개해 보았습니다.
+
+```html
+		<div class="title">
+			<h2>AWARDS</h2>
+			<p> subtitle의 내용을 적어주세요. </p>
+		</div>
+		<div class="awards_list">
+			<ul>
+				<li>
+					<a href="">
+						<div class="photo"><img src="images/img_award1.jpg" alt="award1"></div>
+						<div class="desc">
+							<dl>
+								<dt>KB스타뱅킹</dt>
+								<dd>App Award Korea 2018</dd>
+								<dd>기술이노베이션</dd>
+								<dd>대상</dd>
+							</dl>
+						</div>
+					</a>
+				</li>
+				.
+				.
+				.
+				</ul>
+```
+
+- `nth-child()`, `first-child()` 를 활용하여 순차적으로 애니메이션이 걸리게 해주었습니다.
 
 
 ## 후기 ⌨️
