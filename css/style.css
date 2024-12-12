@@ -604,6 +604,7 @@ section .title p .br {
 	font-size: 0.875em;
 	color: #737373;
 }
+
 @media only screen and (max-width: 1000px) {
 	#page2 .content {
 		padding: 0 25px;
