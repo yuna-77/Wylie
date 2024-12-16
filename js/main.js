@@ -50,7 +50,36 @@ window.addEventListener("load", function(){
 		}
 	});
 
-	
+
+	let n=0;
+
+	const page1=gsap.timeline({
+		scrollTrigger: {
+		  trigger: "#page1",
+		  start: "top center",
+		  scrub: true,
+		  onEnter: () => {
+			n=1; // 섹션에 들어갈 때 n을 1로 설정
+		  },
+		  onLeave: () => {
+			n=0; // 섹션을 떠날 때 n을 0으로 설정
+		  }
+		}
+	});
+
+	const page2=gsap.timeline({
+		scrollTrigger: {
+			trigger: "#page2",
+			start: "top center",
+			scrub: true,
+			onEnter:() => {
+				n=1;
+			} ,
+			onLeave:() => {
+				n=2;
+			}
+		}
+	});
 
 
 });
